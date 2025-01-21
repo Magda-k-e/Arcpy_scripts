@@ -20,3 +20,24 @@ with arcpy.da.SearchCursor(points_file, ['SHAPE@XY', 'RASTERVALU']) as cursor:
 #list the points
 upstream_points = points[:2] 
 downstream_points = points[2:]
+
+# function to calculate slope
+def calculate_slope(point1, point2):
+    x1, y1 = point1['xy']
+    x2, y2 = point2['xy']
+    elevation1 = point1['elevation']
+    elevation2 = point2['elevation']
+
+    dist = math.sqrt((x2-x2)**2 + (y2-y1)**2)
+
+    slope = (elevation2-elevation1)/dist
+    return slope, dist
+
+# upstream
+upstream_slope, upstream_distance = calculate_slope(upstream_points[0], upstream_points[1])
+print("upstream slope: {:.5f} ".format(upstream_slope))
+
+
+# downstream
+downstream_slope, downstream_distance = calculate_slope(downstream_points[0], downstream_points[1])
+print("downstream slope: {:.5f} ".format(downstream_slope))
