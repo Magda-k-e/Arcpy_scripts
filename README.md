@@ -15,3 +15,14 @@ The following are required for input:
 ![image](https://github.com/user-attachments/assets/5ba8a369-fd52-4522-9cef-49e4067eb8c2)
 
 - After caclulating the time of concentration, it adds it as a new field in the attribute table of the basin shapefile.
+
+# Arcpy script "calculate_slope.py"
+This script was developed with the ArcPy site package for use in Esri's ArcMap. It calculates slope between points of a shapefile.
+The following are required for input:
+- a .shp points file
+- a DEM raster file
+
+## Features
+- extracts the elevation from the DEM to the points .shp file
+- lists the points with coordinates and elevation
+- calculates and writes slope in a .txt file
