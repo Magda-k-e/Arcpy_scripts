@@ -1,11 +1,11 @@
-## Arcpy script "time_of_concentration.py"
-This script was developed with the ArcPy site package for use in Esri's ArcMap .
+# Arcpy script "time_of_concentration.py"
+This script was developed with the ArcPy site package for use in Esri's ArcMap.
 The following are required for input:
 - the DEM .tif file of a basin
 - the flow direction .tif file
 - the basin polygon .shp file
 
-Features
+## Features
 - acquires the mean height value (H) in m of the basin from the DEM raster file
 - the maximum flow length (L) in km from the flow direction file
 - the area (A) in km^2 from the basin shapefile
