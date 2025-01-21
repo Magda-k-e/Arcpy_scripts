@@ -41,3 +41,11 @@ print("upstream slope: {:.5f} ".format(upstream_slope))
 # downstream
 downstream_slope, downstream_distance = calculate_slope(downstream_points[0], downstream_points[1])
 print("downstream slope: {:.5f} ".format(downstream_slope))
+
+# export in text file
+output_file = "slopes.txt"
+
+with open(output_file, 'w') as file:
+    file.write("upstream slope: {:.5f}, Distance: {:.3f} meters\n ".format(upstream_slope, upstream_distance))
+    file.write("downstream slope: {:.5f}, Distance: {:.3f} meters\n ".format(downstream_slope, downstream_distance))
+    
