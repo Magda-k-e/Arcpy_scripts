@@ -39,3 +39,20 @@ def calculate_time_concentration(area, length):
 time_conc = calculate_time_concentration(area_value, max_len)
 print("time of concentration is ", time_conc, "hrs")
 
+# Import time of concentration Tc as a new field in the polygon shape file
+
+new_field_name = "Tc"
+field_type = "DOUBLE"
+
+try:
+    arcpy.AddField_management(polygon_path, new_field_name, field_type)
+
+    with arcpy.da.UpdateCursor(polygon_path, [new_field_name]) as cursor:
+        for row in cursor:
+            row[0] = time_conc
+            cursor.updateRow(row)
+    print("Field '{}' has been added with the value {} in {}.".format(new_field_name, time_conc, polygon_path))
+
+except Exception as e:
+    print(" An error occurred", e)
+
